@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="StoreScrollIndicator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l67-d9-HXc">
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ioz-Xg-VbC"/>
+                                </connections>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ah-X1-Ckb" customClass="ScrollIndicatorView" customModule="StoreScrollIndicator" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="1vF-7f-YpB"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6O-dp-ik7" customClass="ScrollIndicatorView" customModule="StoreScrollIndicator" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="Unl-a1-wKB"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSE-gd-l4L" customClass="ScrollIndicatorView" customModule="StoreScrollIndicator" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="oKh-ea-18M"/>
+                                    <constraint firstAttribute="height" constant="2" id="wez-ki-xIU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                        <color key="value" red="0.96078431369999995" green="0.44705882349999998" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9Ah-X1-Ckb" secondAttribute="bottom" constant="60" id="0QB-u9-NzZ"/>
+                            <constraint firstItem="9Ah-X1-Ckb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2h9-oU-dM5"/>
+                            <constraint firstItem="h6O-dp-ik7" firstAttribute="top" secondItem="9Ah-X1-Ckb" secondAttribute="bottom" constant="20" id="6gS-Vu-i1L"/>
+                            <constraint firstItem="l67-d9-HXc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9db-es-iDp"/>
+                            <constraint firstAttribute="trailing" secondItem="l67-d9-HXc" secondAttribute="trailing" id="KB5-HT-KvG"/>
+                            <constraint firstItem="aSE-gd-l4L" firstAttribute="top" secondItem="h6O-dp-ik7" secondAttribute="bottom" constant="20" id="Lzy-Zx-Vj8"/>
+                            <constraint firstItem="9Ah-X1-Ckb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="TRH-ba-pxy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="l67-d9-HXc" secondAttribute="bottom" constant="100" id="c7h-dU-M4o"/>
+                            <constraint firstItem="aSE-gd-l4L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e72-bg-Ohc"/>
+                            <constraint firstItem="h6O-dp-ik7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="j5T-H1-NRM"/>
+                            <constraint firstItem="h6O-dp-ik7" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="jSg-K7-rEl"/>
+                            <constraint firstItem="l67-d9-HXc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kKm-9e-wTN"/>
+                            <constraint firstItem="9Ah-X1-Ckb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kSo-MY-F18"/>
+                            <constraint firstItem="9Ah-X1-Ckb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="wGo-C0-FhA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollIndicatorView1" destination="9Ah-X1-Ckb" id="phh-5P-j3s"/>
+                        <outlet property="scrollIndicatorView2" destination="h6O-dp-ik7" id="P8R-LA-uAj"/>
+                        <outlet property="scrollIndicatorView3" destination="aSE-gd-l4L" id="Qok-Nf-5Ku"/>
+                        <outlet property="scrollView" destination="l67-d9-HXc" id="31H-wo-XMJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="123.68815592203899"/>
+        </scene>
+    </scenes>
+</document>
