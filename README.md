@@ -19,14 +19,16 @@ Apple Store App:
 ## 1. Copy ScrollIndicatorView.swift to your project
 
 - `ScrollIndicatorView.swift`
+- `StackedIndicatorView.swift`
+	- Stacked style
 
-## 2. Put ScrollIndicatorView
+## 2. Put the ScrollIndicatorView / StackedIndicatorView
 
-Put custom view on nib, then set Class as `ScrollIndicatorView`.
+Put the custom view on a nib, then set Class as `ScrollIndicatorView` or `StackedIndicatorView`.
 
 <img width=746 src="images/2.png" >
 
-Also initializable from code.
+Also initializable from your code.
 
 ## 3. Set properties
 
@@ -34,6 +36,7 @@ Also initializable from code.
 scrollIndicatorView.numberOfPages = 5
 scrollIndicatorView.style = .marker   // Marker Style
 scrollIndicatorView.style = .progress // Progress Style
+scrollIndicatorView.style = .autoProgress // Timer Style
 scrollIndicatorView.indicatorColor = UIColor.orange // Indicator Color
 ```
 

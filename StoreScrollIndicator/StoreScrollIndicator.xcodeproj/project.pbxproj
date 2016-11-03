@@ -13,6 +13,7 @@
 		3443A6461DAD2BEF008BDF7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3443A6451DAD2BEF008BDF7C /* Assets.xcassets */; };
 		3443A6491DAD2BEF008BDF7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3443A6471DAD2BEF008BDF7C /* LaunchScreen.storyboard */; };
 		3443A6551DAE8050008BDF7C /* ScrollIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443A6541DAE8050008BDF7C /* ScrollIndicatorView.swift */; };
+		3498E7C11DCB77DB00843794 /* StackedIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3498E7C01DCB77DB00843794 /* StackedIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3443A6481DAD2BEF008BDF7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3443A64A1DAD2BEF008BDF7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3443A6541DAE8050008BDF7C /* ScrollIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollIndicatorView.swift; sourceTree = "<group>"; };
+		3498E7C01DCB77DB00843794 /* StackedIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackedIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				3443A6541DAE8050008BDF7C /* ScrollIndicatorView.swift */,
+				3498E7C01DCB77DB00843794 /* StackedIndicatorView.swift */,
 				3443A63D1DAD2BEF008BDF7C /* ProjectFiles */,
 				3443A63C1DAD2BEF008BDF7C /* Products */,
 			);
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3498E7C11DCB77DB00843794 /* StackedIndicatorView.swift in Sources */,
 				3443A6551DAE8050008BDF7C /* ScrollIndicatorView.swift in Sources */,
 				3443A6411DAD2BEF008BDF7C /* ViewController.swift in Sources */,
 				3443A63F1DAD2BEF008BDF7C /* AppDelegate.swift in Sources */,

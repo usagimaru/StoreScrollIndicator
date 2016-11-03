@@ -10,11 +10,18 @@ import UIKit
 // Original Background Color: #D8D8D8
 // Original Indicator Color: #525252
 
+protocol ScrollIndicatorViewDelegate: AnyObject {
+	
+	func scrollIndicatorViewDidComplete(sender: ScrollIndicatorView)
+	
+}
+
 class ScrollIndicatorView: UIView {
 	
 	enum ScrollIndicatorStyle: Int {
 		case marker
 		case progress
+		case autoProgress
 	}
 	
 	private var fadingIn: Bool = false
@@ -25,14 +32,19 @@ class ScrollIndicatorView: UIView {
 		}
 	}
 	private var indicator = UIView()
+	private weak var timer: Timer?
+	private var animating: Bool = false
 	
-	var numberOfPages: Int = 0
+	var numberOfPages: UInt = 0
+	var timerDuration: CGFloat = 1.0
 	var style: ScrollIndicatorStyle = .marker
 	@IBInspectable var indicatorColor: UIColor! = #colorLiteral(red: 0.3234693706, green: 0.3234777451, blue: 0.3234732151, alpha: 1) {
 		didSet {
 			indicator.backgroundColor = indicatorColor
 		}
 	}
+	
+	weak var delegate: ScrollIndicatorViewDelegate?
 	
 	
     override init(frame: CGRect) {
@@ -76,7 +88,7 @@ class ScrollIndicatorView: UIView {
 		case .marker:
 			x = pageValue
 			w = numberOfPages > 0 ? frame.width / CGFloat(numberOfPages) : 0
-		case .progress:
+		case .progress, .autoProgress:
 			w = pageValue
 		}
 		
@@ -97,6 +109,8 @@ class ScrollIndicatorView: UIView {
 			let pageRate = (frame.width / pageWidth / CGFloat(numberOfPages - 1))
 			let x = pageOffset * pageRate
 			pageValue = x
+		default:
+			break
 		}
 	}
 	
@@ -134,6 +148,52 @@ class ScrollIndicatorView: UIView {
 		               completion: { (finished: Bool) in
 						self.fadingOut = false
 		})
+	}
+	
+	func startTimer() {
+		if timer != nil || style != .autoProgress || (style == .autoProgress && pageValue == frame.width) {
+			return
+		}
+		
+		animating = true
+		timer = Timer.scheduledTimer(timeInterval: 1.0 / 60.0,
+		                             target: self,
+		                             selector: #selector(timerAction),
+		                             userInfo: nil,
+		                             repeats: true)
+		RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
+	}
+	
+	func stopTimer() {
+		if style != .autoProgress {
+			return
+		}
+		
+		timer?.invalidate()
+		timer = nil
+		animating = false
+	}
+	
+	func reset() {
+		timer?.invalidate()
+		timer = nil
+		animating = false
+		pageValue = 0
+	}
+	
+	func timerAction(sender: Timer) {
+		if timerDuration <= 0.0 || !animating {
+			stopTimer()
+			return
+		}
+		
+		let v = max(min(pageValue + frame.width / timerDuration / 60.0, frame.width), 0.0)
+		pageValue = v
+		
+		if pageValue == frame.width {
+			stopTimer()
+			delegate?.scrollIndicatorViewDidComplete(sender: self)
+		}
 	}
 	
 }

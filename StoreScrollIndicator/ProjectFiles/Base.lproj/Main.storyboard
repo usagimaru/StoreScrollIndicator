@@ -48,30 +48,70 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIv-Jj-lzD" customClass="ScrollIndicatorView" customModule="StoreScrollIndicator" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="z7W-9y-bRF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQu-p2-wPp" customClass="ScrollIndicatorView" customModule="StoreScrollIndicator" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="xQ3-UY-xFo"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKC-wM-SMW" customClass="StackedIndicatorView" customModule="StoreScrollIndicator" customModuleProvider="target">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="QeH-T2-0V6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3h-kq-HQ1" customClass="StackedIndicatorView" customModule="StoreScrollIndicator" customModuleProvider="target">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="Oy9-J6-wF7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9Ah-X1-Ckb" secondAttribute="bottom" constant="60" id="0QB-u9-NzZ"/>
                             <constraint firstItem="9Ah-X1-Ckb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2h9-oU-dM5"/>
+                            <constraint firstItem="eQu-p2-wPp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6Lu-pn-pG8"/>
                             <constraint firstItem="h6O-dp-ik7" firstAttribute="top" secondItem="9Ah-X1-Ckb" secondAttribute="bottom" constant="20" id="6gS-Vu-i1L"/>
+                            <constraint firstItem="EKC-wM-SMW" firstAttribute="top" secondItem="q3h-kq-HQ1" secondAttribute="bottom" constant="20" id="7q0-aI-Nwi"/>
                             <constraint firstItem="l67-d9-HXc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9db-es-iDp"/>
+                            <constraint firstItem="mIv-Jj-lzD" firstAttribute="top" secondItem="eQu-p2-wPp" secondAttribute="bottom" constant="20" id="Af5-Oe-EDo"/>
+                            <constraint firstItem="q3h-kq-HQ1" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Jk2-cr-eAg"/>
                             <constraint firstAttribute="trailing" secondItem="l67-d9-HXc" secondAttribute="trailing" id="KB5-HT-KvG"/>
                             <constraint firstItem="aSE-gd-l4L" firstAttribute="top" secondItem="h6O-dp-ik7" secondAttribute="bottom" constant="20" id="Lzy-Zx-Vj8"/>
                             <constraint firstItem="9Ah-X1-Ckb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="TRH-ba-pxy"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="l67-d9-HXc" secondAttribute="bottom" constant="100" id="c7h-dU-M4o"/>
+                            <constraint firstItem="9Ah-X1-Ckb" firstAttribute="top" secondItem="mIv-Jj-lzD" secondAttribute="bottom" constant="20" id="aFH-FH-jDB"/>
+                            <constraint firstItem="mIv-Jj-lzD" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bLz-xp-eYB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="l67-d9-HXc" secondAttribute="bottom" constant="170" id="c7h-dU-M4o"/>
+                            <constraint firstItem="q3h-kq-HQ1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="d5y-gy-FQ1"/>
+                            <constraint firstItem="EKC-wM-SMW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="dHW-lO-Ibg"/>
                             <constraint firstItem="aSE-gd-l4L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e72-bg-Ohc"/>
                             <constraint firstItem="h6O-dp-ik7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="j5T-H1-NRM"/>
                             <constraint firstItem="h6O-dp-ik7" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="jSg-K7-rEl"/>
                             <constraint firstItem="l67-d9-HXc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kKm-9e-wTN"/>
                             <constraint firstItem="9Ah-X1-Ckb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kSo-MY-F18"/>
+                            <constraint firstItem="mIv-Jj-lzD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mQc-WX-0Hw"/>
+                            <constraint firstItem="eQu-p2-wPp" firstAttribute="top" secondItem="EKC-wM-SMW" secondAttribute="bottom" constant="20" id="s2Z-lC-yw2"/>
                             <constraint firstItem="9Ah-X1-Ckb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="wGo-C0-FhA"/>
+                            <constraint firstItem="EKC-wM-SMW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wqX-aR-Cyn"/>
+                            <constraint firstItem="eQu-p2-wPp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yhh-6S-9z2"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="scrollIndicatorView1" destination="9Ah-X1-Ckb" id="phh-5P-j3s"/>
                         <outlet property="scrollIndicatorView2" destination="h6O-dp-ik7" id="P8R-LA-uAj"/>
                         <outlet property="scrollIndicatorView3" destination="aSE-gd-l4L" id="Qok-Nf-5Ku"/>
+                        <outlet property="scrollIndicatorView4" destination="mIv-Jj-lzD" id="pyX-Zh-LSa"/>
+                        <outlet property="scrollIndicatorView5" destination="eQu-p2-wPp" id="MNv-UX-4xy"/>
                         <outlet property="scrollView" destination="l67-d9-HXc" id="31H-wo-XMJ"/>
+                        <outlet property="stackedIndicatorView1" destination="EKC-wM-SMW" id="Nzb-Zh-tEV"/>
+                        <outlet property="stackedIndicatorView2" destination="q3h-kq-HQ1" id="lHQ-Tw-6IA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
