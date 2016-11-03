@@ -144,7 +144,7 @@ extension ViewController: ScrollIndicatorViewDelegate {
 extension ViewController: StackedIndicatorViewDelegate {
 	
 	func stackedIndicator(view: StackedIndicatorView, didComplete indicator: ScrollIndicatorView, at index: Int) {
-		print("\(view.spacing)")
+		
 	}
 	
 	func stackedIndicator(view: StackedIndicatorView, shouldStartNext indicator: ScrollIndicatorView, at index: Int) -> Bool {
