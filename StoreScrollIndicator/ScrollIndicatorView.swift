@@ -125,7 +125,7 @@ class ScrollIndicatorView: UIView {
 		fadingOut = false
 		UIView.animate(withDuration: 0.25,
 		               delay: 0,
-		               options: UIViewAnimationOptions.beginFromCurrentState,
+					   options: .beginFromCurrentState,
 		               animations: {
 						self.alpha = 1.0
 			},
@@ -141,7 +141,7 @@ class ScrollIndicatorView: UIView {
 		fadingIn = false
 		UIView.animate(withDuration: 0.8,
 		               delay: 0.3,
-		               options: UIViewAnimationOptions.beginFromCurrentState,
+		               options: .beginFromCurrentState,
 		               animations: {
 						self.alpha = 0.4
 			},
@@ -161,7 +161,7 @@ class ScrollIndicatorView: UIView {
 		                             selector: #selector(timerAction),
 		                             userInfo: nil,
 		                             repeats: true)
-		RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
+		RunLoop.current.add(timer!, forMode: .common)
 	}
 	
 	func stopTimer() {
@@ -181,7 +181,7 @@ class ScrollIndicatorView: UIView {
 		pageValue = 0
 	}
 	
-	func timerAction(sender: Timer) {
+	@objc func timerAction(sender: Timer) {
 		if timerDuration <= 0.0 || !animating {
 			stopTimer()
 			return

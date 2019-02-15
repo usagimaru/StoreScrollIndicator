@@ -55,11 +55,11 @@ class StackedIndicatorView: UIView {
 		
 		stackView.translatesAutoresizingMaskIntoConstraints = false
 		addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|",
-		                                              options: NSLayoutFormatOptions(rawValue: 0),
+													  options: [],
 		                                              metrics: nil,
 		                                              views: ["view" : stackView]))
 		addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|",
-		                                              options: NSLayoutFormatOptions(rawValue: 0),
+													  options: [],
 		                                              metrics: nil,
 		                                              views: ["view" : stackView]))
 		
