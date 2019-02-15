@@ -40,7 +40,7 @@ class ScrollIndicatorView: UIView {
 	var style: ScrollIndicatorStyle = .marker
 	@IBInspectable var indicatorColor: UIColor! = #colorLiteral(red: 0.3234693706, green: 0.3234777451, blue: 0.3234732151, alpha: 1) {
 		didSet {
-			indicator.backgroundColor = indicatorColor
+			self.indicator.backgroundColor = indicatorColor
 		}
 	}
 	
@@ -58,13 +58,13 @@ class ScrollIndicatorView: UIView {
 	}
 	
 	private func _init() {
-		clipsToBounds = true
-		alpha = 0.4
+		self.clipsToBounds = true
+		self.alpha = 0.4
 		
-		indicator.clipsToBounds = true
-		indicator.backgroundColor = indicatorColor
+		self.indicator.clipsToBounds = true
+		self.indicator.backgroundColor = self.indicatorColor
 		
-		addSubview(indicator)
+		addSubview(self.indicator)
 	}
 	
 	
@@ -76,8 +76,8 @@ class ScrollIndicatorView: UIView {
 		if layer.cornerRadius != frame.height / 2 {
 			layer.cornerRadius = frame.height / 2
 		}
-		if indicator.layer.cornerRadius != frame.height / 2 {
-			indicator.layer.cornerRadius = frame.height / 2
+		if self.indicator.layer.cornerRadius != frame.height / 2 {
+			self.indicator.layer.cornerRadius = frame.height / 2
 		}
 		
 		let h = frame.height
@@ -86,14 +86,14 @@ class ScrollIndicatorView: UIView {
 		
 		switch style {
 		case .marker:
-			x = pageValue
-			w = numberOfPages > 0 ? frame.width / CGFloat(numberOfPages) : 0
+			x = self.pageValue
+			w = numberOfPages > 0 ? frame.width / CGFloat(self.numberOfPages) : 0
 		case .progress, .autoProgress:
-			w = pageValue
+			w = self.pageValue
 		}
 		
 		let indicatorFrame = CGRect(x: x, y: 0, width: w, height: h)
-		indicator.frame = indicatorFrame
+		self.indicator.frame = indicatorFrame
 	}
 	
 	
@@ -102,13 +102,13 @@ class ScrollIndicatorView: UIView {
 	func scrollTo(pageOffset: CGFloat, pageWidth: CGFloat) {
 		switch style {
 		case .marker:
-			let pageRate = (frame.width / pageWidth / CGFloat(numberOfPages))
+			let pageRate = (frame.width / pageWidth / CGFloat(self.numberOfPages))
 			let x = pageOffset * pageRate
-			pageValue = x
+			self.pageValue = x
 		case .progress:
-			let pageRate = (frame.width / pageWidth / CGFloat(numberOfPages - 1))
+			let pageRate = (frame.width / pageWidth / CGFloat(self.numberOfPages - 1))
 			let x = pageOffset * pageRate
-			pageValue = x
+			self.pageValue = x
 		default:
 			break
 		}
@@ -119,10 +119,10 @@ class ScrollIndicatorView: UIView {
 	}
 	
 	func fadeIn() {
-		if fadingIn {return}
+		if self.fadingIn {return}
 		
-		fadingIn = true
-		fadingOut = false
+		self.fadingIn = true
+		self.fadingOut = false
 		UIView.animate(withDuration: 0.25,
 		               delay: 0,
 					   options: .beginFromCurrentState,
@@ -135,10 +135,10 @@ class ScrollIndicatorView: UIView {
 	}
 	
 	func fadeOut() {
-		if fadingOut {return}
+		if self.fadingOut {return}
 		
-		fadingOut = true
-		fadingIn = false
+		self.fadingOut = true
+		self.fadingIn = false
 		UIView.animate(withDuration: 0.8,
 		               delay: 0.3,
 		               options: .beginFromCurrentState,
@@ -151,17 +151,18 @@ class ScrollIndicatorView: UIView {
 	}
 	
 	func startTimer() {
-		if timer != nil || style != .autoProgress || (style == .autoProgress && pageValue == frame.width) {
+		if self.timer != nil || self.style != .autoProgress || (self.style == .autoProgress && self.pageValue == frame.width) {
 			return
 		}
 		
-		animating = true
-		timer = Timer.scheduledTimer(timeInterval: 1.0 / 60.0,
-		                             target: self,
-		                             selector: #selector(timerAction),
-		                             userInfo: nil,
-		                             repeats: true)
-		RunLoop.current.add(timer!, forMode: .common)
+		self.animating = true
+		let interval = 1.0 / 60.0
+		self.timer = Timer.scheduledTimer(timeInterval: interval,
+										  target: self,
+										  selector: #selector(timerAction),
+										  userInfo: nil,
+										  repeats: true)
+		RunLoop.current.add(self.timer!, forMode: .common)
 	}
 	
 	func stopTimer() {
@@ -169,30 +170,30 @@ class ScrollIndicatorView: UIView {
 			return
 		}
 		
-		timer?.invalidate()
-		timer = nil
-		animating = false
+		self.timer?.invalidate()
+		self.timer = nil
+		self.animating = false
 	}
 	
 	func reset() {
-		timer?.invalidate()
-		timer = nil
-		animating = false
-		pageValue = 0
+		self.timer?.invalidate()
+		self.timer = nil
+		self.animating = false
+		self.pageValue = 0
 	}
 	
 	@objc func timerAction(sender: Timer) {
-		if timerDuration <= 0.0 || !animating {
+		if self.timerDuration <= 0.0 || !self.animating {
 			stopTimer()
 			return
 		}
 		
-		let v = max(min(pageValue + frame.width / timerDuration / 60.0, frame.width), 0.0)
-		pageValue = v
+		let v = max(min(self.pageValue + frame.width / self.timerDuration / 60.0, frame.width), 0.0)
+		self.pageValue = v
 		
-		if pageValue == frame.width {
+		if self.pageValue == frame.width {
 			stopTimer()
-			delegate?.scrollIndicatorViewDidComplete(sender: self)
+			self.delegate?.scrollIndicatorViewDidComplete(sender: self)
 		}
 	}
 	

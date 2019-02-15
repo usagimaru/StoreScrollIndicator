@@ -22,10 +22,10 @@ class StackedIndicatorView: UIView {
 	
 	var spacing: CGFloat {
 		get {
-			return stackView.spacing
+			return self.stackView.spacing
 		}
 		set {
-			stackView.spacing = newValue
+			self.stackView.spacing = newValue
 		}
 	}
 	
@@ -51,30 +51,30 @@ class StackedIndicatorView: UIView {
 	}
 	
 	private func _init() {
-		addSubview(stackView)
+		addSubview(self.stackView)
 		
-		stackView.translatesAutoresizingMaskIntoConstraints = false
+		self.stackView.translatesAutoresizingMaskIntoConstraints = false
 		addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|",
 													  options: [],
 		                                              metrics: nil,
-		                                              views: ["view" : stackView]))
+		                                              views: ["view" : self.stackView]))
 		addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|",
 													  options: [],
 		                                              metrics: nil,
-		                                              views: ["view" : stackView]))
+		                                              views: ["view" : self.stackView]))
 		
-		stackView.alignment = .fill
-		stackView.distribution = .fillEqually
-		stackView.axis = .horizontal
-		spacing = 2
+		self.stackView.alignment = .fill
+		self.stackView.distribution = .fillEqually
+		self.stackView.axis = .horizontal
+		self.spacing = 2
 	}
 	
 	private func setIndicators() {
-		for indicator in indicators {
-			stackView.removeArrangedSubview(indicator)
+		for indicator in self.indicators {
+			self.stackView.removeArrangedSubview(indicator)
 			indicator.stopTimer()
 		}
-		indicators.removeAll()
+		self.indicators.removeAll()
 		
 		for _ in 0..<numberOfIndicators {
 			let indicator = ScrollIndicatorView()
@@ -82,27 +82,27 @@ class StackedIndicatorView: UIView {
 			indicator.delegate = self
 			indicator.timerDuration = 2.0
 			indicator.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
-			stackView.addArrangedSubview(indicator)
-			indicators.append(indicator)
+			self.stackView.addArrangedSubview(indicator)
+			self.indicators.append(indicator)
 		}
 	}
 	
 	func setTimerDuration(duration: CGFloat) {
-		for indicator in indicators {
+		for indicator in self.indicators {
 			indicator.timerDuration = duration
 		}
 	}
 	
 	func start() {
-		if let firstIndicator = indicators.first {
-			if delegate?.stackedIndicator(view: self, shouldStartNext: firstIndicator, at: 0) ?? true {
+		if let firstIndicator = self.indicators.first {
+			if self.delegate?.stackedIndicator(view: self, shouldStartNext: firstIndicator, at: 0) ?? true {
 				firstIndicator.startTimer()
 			}
 		}
 	}
 	
 	func reset() {
-		for indicator in indicators {
+		for indicator in self.indicators {
 			indicator.reset()
 		}
 	}
@@ -112,29 +112,29 @@ class StackedIndicatorView: UIView {
 extension StackedIndicatorView: ScrollIndicatorViewDelegate {
 	
 	func scrollIndicatorViewDidComplete(sender: ScrollIndicatorView){
-		if !indicators.contains(sender) {
+		if !self.indicators.contains(sender) {
 			return
 		}
 		
-		if let index = indicators.index(of: sender) {
-			if index < indicators.count - 1 {
-				delegate?.stackedIndicator(view: self, didComplete: indicators[index], at: index)
+		if let index = self.indicators.index(of: sender) {
+			if index < self.indicators.count - 1 {
+				self.delegate?.stackedIndicator(view: self, didComplete: self.indicators[index], at: index)
 				
 				let next = index + 1
-				let nextIndicator = indicators[next]
-				if delegate?.stackedIndicator(view: self, shouldStartNext: nextIndicator, at: next) ?? true {
+				let nextIndicator = self.indicators[next]
+				if self.delegate?.stackedIndicator(view: self, shouldStartNext: nextIndicator, at: next) ?? true {
 					nextIndicator.startTimer()
 				}
 			}
-			else if index == indicators.count - 1 {
-				let indicator = indicators[index]
-				delegate?.stackedIndicator(view: self, didComplete: indicator, at: index)
+			else if index == self.indicators.count - 1 {
+				let indicator = self.indicators[index]
+				self.delegate?.stackedIndicator(view: self, didComplete: indicator, at: index)
 				
-				if resetTimerWhenCompleted {
+				if self.resetTimerWhenCompleted {
 					reset()
 				}
 				
-				delegate?.stackedIndicatorViewDidCompleteAll(sender: self)
+				self.delegate?.stackedIndicatorViewDidCompleteAll(sender: self)
 			}
 		}
 	}
