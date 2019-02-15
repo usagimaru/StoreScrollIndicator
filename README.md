@@ -8,10 +8,10 @@ Apple Store App:
 
 ![](images/applestore.gif)
 
-# Summary
+# Requirement
 
 - iOS 9.3 and later
-- Swift 3
+- Swift 4.2
 - Xcode 8 (Sample Project)
 
 # Usage
